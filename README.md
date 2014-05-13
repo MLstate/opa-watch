@@ -1,21 +1,16 @@
 opa-watch
 ===========
 
+# What is *opa-watch*
 
-## What is *opa-watch*?
 *opa-watch* provides a project-based 'verify & launch loop' for Opa. 
 This makes developpement with Opa even more fun and more productive.
 
 Each time you do a modification on your project, your project is automatically verified by the *Opa* compiler (syntax, semantics, client/server distribution ...) and launched.
 *opa-watch* is editor-independant so it will work in any environment.
 
+# How to use it
 
-## Is my project supported?
-It should work off-the-shelf with any project created by opa-create or containing an `opa.conf` or a `Makefile` files.
-It can be easily customized to work with most projects.
-
-
-## How to use it?
 Assuming your project is compatible with *opa-watch*, in a terminal, start *opa-watch*:
 
 `opa-watch --src-dir path/opa_project`
@@ -59,17 +54,23 @@ For instance, if you introduce a type error, we will have the following notifica
 
 You can correct the error and continue to work on your project, at any time the project is correct again, the last version will be launched and testable in your browser.
 
+# FAQ
+
+## Is my project supported?
+
+It should work off-the-shelf with any project created by opa-create or containing an `opa.conf` or a `Makefile` files.
+It can be easily customized to work with most projects.
 
 ## Is my Makefile supported?
+
 If `make` builds your project and `make run` launches or relaunches your project, then yes it is supported.
 
-
 ## My Makefile is not supported, what should I do?
+
 Assuming `make target1` is compiling your project, generating `target1.exe`.
 You can do:
 `opa-watch --src-dir path/opa_project --command "make target1.exe" --command "killall target1 && target1.exe"`
 See "How to use with project with custom build rules?" for explanations.
-
 
 ## How to use for a project with custom build rules?
 
@@ -80,21 +81,27 @@ For instance:
 `opa-watch --src-dir path/opa_project --command "build_command" --command "killall launch.exe" --comand "launch.exe"`
 
 ## How to use specific opa options without specifying `--command`?
+
 You can use `--opa-opt`.
 For instance if your project is in classic syntax:
 `opa-watch --src-dir path/opa_project --opa-opt "--parser classic"`
 
 ## How to avoid the `--src-dir` option?
+
 The current directory will be use if `--src-dir` is omitted.
 
 ## Are Mac and Windows supported?
+
 *opa-watch* should work but the notification feature is not working yet. 
 
 ## Can notification appeared in my favorite text editor?
+
 We plan to support notification in emacs and Sublime Text, and to provide a simple way to have it on other editor.
 
-## Can I make opa-watch better?
-With pleasure. Please contribute bug fixes, doc fixes and new features!
+# Contributing
 
-## What is the license?
 *opa-watch* is released under the MIT license.
+
+Please contribute bug fixes, doc fixes and new features!
+
+
